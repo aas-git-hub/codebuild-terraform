@@ -35,5 +35,5 @@ variable "vpc_id" {
 variable "subnet_id" {
   type        = string
   description = "Subnet ID to launch the EC2 instance into"
-  default     = "subnet-0a19739c4720e523d"  # Replace with a subnet in your VPC
+  default     = "subnet-0d4cc4dcd1ae2b192"  # aas-subnet1
 }
