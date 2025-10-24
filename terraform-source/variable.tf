@@ -31,3 +31,9 @@ variable "vpc_id" {
   description = "VPC ID to launch resources into"
   default = "vpc-0ec3eaf5e3b714e89"
 }
+
+variable "subnet_id" {
+  type        = string
+  description = "Subnet ID to launch the EC2 instance into"
+  default     = "subnet-0d4cc4dcd1ae2b192"  # Replace with a subnet in vpc-0ec3eaf5e3b714e89
+}
