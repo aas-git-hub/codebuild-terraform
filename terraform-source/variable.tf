@@ -7,18 +7,18 @@ variable "aws_region" {
 variable "ami_id" {
   type        = string
   description = "AMI ID to use for the instance"
-  default     = "ami-03814457ed908d8f6"
+  default     = "ami-03814457ed908d8f6"  # Change if using a demo AMI
 }
 
 variable "instance_type" {
-  type        = string
-  default     = "t2.micro"
+  type    = string
+  default = "t2.micro"
 }
 
 variable "key_name" {
   type        = string
   description = "EC2 Key pair name"
-  default = "andrew-keypair"
+  default     = "andrew-keypair"
 }
 
 variable "environment" {
@@ -29,11 +29,11 @@ variable "environment" {
 variable "vpc_id" {
   type        = string
   description = "VPC ID to launch resources into"
-  default = "vpc-0ec3eaf5e3b714e89"
+  default     = "vpc-0ec3eaf5e3b714e89"
 }
 
 variable "subnet_id" {
   type        = string
   description = "Subnet ID to launch the EC2 instance into"
-  default     = "subnet-0d4cc4dcd1ae2b192"  # Replace with a subnet in vpc-0ec3eaf5e3b714e89
+  default     = "subnet-0a19739c4720e523d"  # Replace with a subnet in your VPC
 }

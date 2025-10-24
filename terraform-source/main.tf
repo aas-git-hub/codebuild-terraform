@@ -20,6 +20,7 @@ resource "random_id" "sg_suffix" {
   byte_length = 2
 }
 
+# Security Group
 resource "aws_security_group" "allow_ssh" {
   name        = "${var.environment}_sg_${random_id.sg_suffix.hex}"
   description = "Allow SSH inbound traffic"
@@ -38,8 +39,13 @@ resource "aws_security_group" "allow_ssh" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  tags = {
+    Name = "${var.environment}-sg"
+  }
 }
 
+# EC2 instance
 resource "aws_instance" "example" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
@@ -48,6 +54,7 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 
   tags = {
-    Name = "${var.environment}-server"
+    Name        = "${var.environment}-server"
+    Environment = var.environment
   }
 }
